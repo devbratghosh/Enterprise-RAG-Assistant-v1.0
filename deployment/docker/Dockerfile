@@ -55,11 +55,16 @@ COPY requirements.txt .
 # ----------------------------------------------------------
 # Install Python Packages
 # ----------------------------------------------------------
-
 RUN pip install --upgrade pip
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Install CPU-only PyTorch
+RUN pip install --no-cache-dir \
+    torch==2.8.0 \
+    --index-url https://download.pytorch.org/whl/cpu
 
+# Install remaining application dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+ 
 # ----------------------------------------------------------
 # Copy Application
 # ----------------------------------------------------------
