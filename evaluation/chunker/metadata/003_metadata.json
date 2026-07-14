@@ -1,0 +1,53 @@
+{
+    "run_number": 3,
+    "execution": {
+        "date": "13-Jul-2026",
+        "time": "12:31:58 PM",
+        "duration_seconds": 1.978
+    },
+    "configuration": {
+        "version": "1.0.0",
+        "strategy": "Recursive",
+        "chunk_size": 500,
+        "overlap_strategy": "Section Boundary",
+        "overlap_size": 50,
+        "embedding_model": "all-MiniLM-L6-v2",
+        "collection_name": "enterprise_policies",
+        "top_k": 3
+    },
+    "document": {
+        "document_name": "policy.pdf",
+        "total_characters": 67031,
+        "total_words": 9266,
+        "total_lines": 1149,
+        "total_paragraphs": 98,
+        "total_chapters": 47,
+        "total_sections": 98,
+        "empty_paragraphs_removed": 0,
+        "duplicate_paragraphs_removed": 0
+    },
+    "chunk_statistics": {
+        "total_chunks": 121,
+        "average_chunk_size": 649.09,
+        "median_chunk_size": 741,
+        "smallest_chunk": 186,
+        "largest_chunk": 800,
+        "average_paragraphs_per_chunk": 10.56,
+        "invalid_chunks": 0,
+        "empty_chunks": 0,
+        "duplicate_chunks": 0,
+        "chunks_with_chapter_title": 120,
+        "chunks_with_section_title": 82,
+        "chunks_starting_mid_sentence": 0,
+        "chunks_ending_mid_sentence": 51
+    },
+    "validation": {
+        "passed": true,
+        "messages": [
+            "Validation completed successfully."
+        ]
+    },
+    "engineering_notes": "",
+    "future_recommendation": "",
+    "decision": "Needs Investigation"
+}

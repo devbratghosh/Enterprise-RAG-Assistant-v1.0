@@ -1,0 +1,5 @@
+Run,Version,Date,Time,Document,Strategy,Chunk Size,Overlap,Chunks,Average Size,Largest,Smallest,Execution Time
+0,1.0.0,13-Jul-2026,11:18:46 AM,policy.pdf,Recursive,500,50,121,649.09,800,186,2.845
+1,1.0.0,13-Jul-2026,12:02:23 PM,policy.pdf,Recursive,500,50,121,649.09,800,186,2.861
+2,1.0.0,13-Jul-2026,12:26:09 PM,policy.pdf,Recursive,500,50,121,649.09,800,186,2.042
+3,1.0.0,13-Jul-2026,12:31:58 PM,policy.pdf,Recursive,500,50,121,649.09,800,186,1.978
