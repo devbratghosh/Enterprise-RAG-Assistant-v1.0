@@ -54,8 +54,8 @@ def get_collection():
 
     # First deployment / empty database
     if collection.count() == 0:
-        print(f"Stored {collection.count()} chunks.")("Empty vector database detected.")
-        print(f"Stored {collection.count()} chunks.")("Generating embeddings...")
+        print("Empty vector database detected.")
+        print("Generating embeddings...")
 
         store_documents(collection=collection)
 
@@ -116,7 +116,7 @@ def store_documents(
 
     embeddings: list[list[float]] = []
 
-    print(f"Stored {collection.count()} chunks.")("Generating embeddings...")
+    print("Generating embeddings...")
 
     for i, chunk in enumerate(chunks):
 
