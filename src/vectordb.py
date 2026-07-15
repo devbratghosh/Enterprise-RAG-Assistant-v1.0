@@ -8,6 +8,7 @@ AUTHOR : Devbrat Ghosh
 """
 
 import chromadb
+from pathlib import Path
 
 from src.config import (
     CHROMA_DB_PATH,
@@ -25,6 +26,13 @@ from src.recursive_chunker import (
 # --------------------------------------------------
 # CLIENT
 # --------------------------------------------------
+Path(CHROMA_DB_PATH).mkdir(
+
+    parents=True,
+
+    exist_ok=True,
+
+)
 
 client = chromadb.PersistentClient(
 
@@ -38,13 +46,24 @@ client = chromadb.PersistentClient(
 # --------------------------------------------------
 
 def get_collection():
-
-    return client.get_or_create_collection(
-
+    # Fetch or create the collection
+    collection = client.get_or_create_collection(
         name=COLLECTION_NAME
-
     )
 
+    # First deployment / empty database
+    if collection.count() == 0:
+        print("Empty vector database detected.")
+        print("Generating embeddings...")
+
+        store_documents()
+
+        # Refresh the collection after indexing
+        collection = client.get_or_create_collection(
+            name=COLLECTION_NAME
+        )
+
+    return collection
 
 # --------------------------------------------------
 # RESET DATABASE
