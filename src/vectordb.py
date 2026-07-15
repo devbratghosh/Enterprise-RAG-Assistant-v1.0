@@ -9,6 +9,7 @@ AUTHOR : Devbrat Ghosh
 
 import chromadb
 from pathlib import Path
+ 
 
 from src.config import (
     CHROMA_DB_PATH,
@@ -53,10 +54,10 @@ def get_collection():
 
     # First deployment / empty database
     if collection.count() == 0:
-        print("Empty vector database detected.")
-        print("Generating embeddings...")
+        print(f"Stored {collection.count()} chunks.")("Empty vector database detected.")
+        print(f"Stored {collection.count()} chunks.")("Generating embeddings...")
 
-        store_documents()
+        store_documents(collection=collection)
 
         # Refresh the collection after indexing
         collection = client.get_or_create_collection(
@@ -99,13 +100,15 @@ def load_chunks():
 
 def store_documents(
      chunks: list[str] | None = None,
+     collection=None,
     ):
 
     if chunks is None:
 
         chunks = load_chunks()
 
-    collection = get_collection()
+    if collection is None:
+        collection = get_collection()
 
     ids: list[str] = []
 
@@ -113,7 +116,7 @@ def store_documents(
 
     embeddings: list[list[float]] = []
 
-    print("Generating embeddings...")
+    print(f"Stored {collection.count()} chunks.")("Generating embeddings...")
 
     for i, chunk in enumerate(chunks):
 
